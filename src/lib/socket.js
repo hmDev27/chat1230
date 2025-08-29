@@ -7,7 +7,9 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: ["https://chat1031.netlify.app"],
+        origin: "https://chat1031.netlify.app",
+        credentials: true,
+        methods: ["GET", "POST"]
     },
 });
 
