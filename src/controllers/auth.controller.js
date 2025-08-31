@@ -6,10 +6,10 @@
         const {fullName,email,password} = req.body
         try {
             if (!fullName || !email || !password ) {
-                return res.status(400).json({message: "All fields are required"})
+                return res.status(400).json({message: "သုံးကွက်လုံးကိုဖြည့်စွက်ရန်လိုအပ်သည်"})
             }
             if (password.length < 6) {
-                return res.status(400).json({ message: "Password must be at least 6 characters"});
+                return res.status(400).json({ message: "လျှို့ဝှက်နံပါတ် ၆ ခုနှင့်အထက်ရှိရမည်"});
             }
 
             const user = await User.findOne({email})
@@ -79,7 +79,7 @@
     export const logout = (req, res) => {
         try{
             res.cookie("jwt", "",{maxAge:0})
-            res.status(200).json({ message: "Logged out successfully"})
+            res.status(200).json({ message: "Log out ထွက်လိုက်ပါပြီ"})
 
         } catch (error) {
             console.log("Error in logout controller", error.message);
